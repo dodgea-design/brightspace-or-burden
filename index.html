@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive Brightspace-inspired prototype exploring executive-function-friendly course design through Universal Design for Learning.">
+  <title>Brightspace or Burden? Executive Function Design Test</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="topbar">
+    <button class="icon-button menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="course-navigation">
+      <span aria-hidden="true">☰</span><span class="sr-only">Open course navigation</span>
+    </button>
+    <a class="brand" href="#home" data-page-link="home">
+      <span class="brand-mark" aria-hidden="true">AB</span>
+      <span><strong>AccessAbility Services</strong><small>Interactive course-design prototype</small></span>
+    </a>
+    <div class="toolbar" aria-label="Display and reading controls">
+      <button type="button" id="listen-button" class="toolbar-button">Listen to page</button>
+      <button type="button" id="text-button" class="toolbar-button" aria-pressed="false">Larger text</button>
+      <button type="button" id="contrast-button" class="toolbar-button" aria-pressed="false">High contrast</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="course-navigation" aria-label="Course navigation">
+      <div class="course-banner">
+        <p>AccessAbility Services <span aria-hidden="true">•</span> Unit 4 of 4</p>
+        <div class="course-title-row">
+          <h1>Brightspace or Burden?</h1>
+          <div class="progress-ring" id="progress-ring" role="img" aria-label="0 of 12 pages complete">
+            <span id="progress-count">0/12</span>
+          </div>
+        </div>
+        <p class="course-subtitle">Executive Function Design Test</p>
+      </div>
+
+      <nav class="course-nav" aria-label="Prototype pages">
+        <details open>
+          <summary>Project Orientation</summary>
+          <a href="#home" data-page-link="home">Project Home</a>
+          <a href="#jordan" data-page-link="jordan">Meet Jordan</a>
+          <a href="#instructions" data-page-link="instructions">Testing Instructions</a>
+        </details>
+        <details>
+          <summary>Course View A <span class="module-count">0/2</span></summary>
+          <a href="#view-a" data-page-link="view-a">Week 4: Investigative Thinking</a>
+          <a href="#assignment-a" data-page-link="assignment-a">A – Field Observation Brief</a>
+        </details>
+        <details>
+          <summary>Course View B <span class="module-count">0/3</span></summary>
+          <a href="#view-b" data-page-link="view-b">Week 4: Observation vs. Inference</a>
+          <a href="#checklist" data-page-link="checklist">Jordan’s Return-to-Learning Checklist</a>
+          <a href="#assignment-b" data-page-link="assignment-b">B – Field Observation Brief</a>
+        </details>
+        <details>
+          <summary>Evaluation and Findings <span class="module-count">0/4</span></summary>
+          <a href="#evaluation" data-page-link="evaluation">Participant Evaluation</a>
+          <a href="#educator" data-page-link="educator">Educator Feasibility Review</a>
+          <a href="#findings" data-page-link="findings">Best-Practice Findings</a>
+          <a href="#discussion" data-page-link="discussion">Discussion Activity</a>
+        </details>
+      </nav>
+
+      <button id="reset-button" class="reset-button" type="button">Reset prototype progress</button>
+    </aside>
+
+    <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+
+    <main id="main-content" class="main-content" tabindex="-1">
+      <div class="prototype-notice" role="note">
+        <strong>Prototype:</strong> This public demonstration recreates the learner-facing experience for evaluation. It is not connected to a live Brightspace course, gradebook, or submission system.
+      </div>
+
+      <section class="page is-active" id="page-home" data-page="home" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">One assignment. Two course designs.</p>
+            <h2 id="home-title">Brightspace or Burden?</h2>
+            <p class="hero-lead">Explore how course organization can either add executive-function demands or help a learner find, begin, track, and return to learning.</p>
+            <div class="button-row">
+              <button class="primary-button" type="button" data-go="jordan">Begin with Jordan</button>
+              <button class="secondary-button" type="button" data-go="instructions">Review the activity</button>
+            </div>
+          </div>
+          <img src="assets/brightspace-burden-hero.png" alt="A laptop between a clear, supported pathway and a crowded tangle of competing information.">
+        </div>
+
+        <div class="info-grid three-up">
+          <article class="info-card">
+            <span class="card-number" aria-hidden="true">1</span>
+            <h3>Identify and evaluate</h3>
+            <p>Notice the executive-function demands created by each design and evaluate Brightspace through a UDL lens.</p>
+          </article>
+          <article class="info-card">
+            <span class="card-number" aria-hidden="true">2</span>
+            <h3>Consider Jordan’s experience</h3>
+            <p>Explore what returning to a course feels like when health, work, sleep, and attention have interrupted learning.</p>
+          </article>
+          <article class="info-card">
+            <span class="card-number" aria-hidden="true">3</span>
+            <h3>Recognize sustainable practice</h3>
+            <p>Separate high-impact design decisions from features that may require excessive maintenance or institutional support.</p>
+          </article>
+        </div>
+
+        <aside class="time-card">
+          <div><strong>Estimated experience:</strong> 20–30 minutes</div>
+          <div><strong>Your information:</strong> Notes and progress stay in this browser.</div>
+        </aside>
+      </section>
+
+      <section class="page" id="page-jordan" data-page="jordan" aria-labelledby="jordan-title" hidden>
+        <p class="eyebrow">Learner persona</p>
+        <h2 id="jordan-title">Meet Jordan</h2>
+
+        <div class="persona-intro">
+          <figure>
+            <img src="assets/jordan.png" alt="Jordan, a fictional college student, working at a cluttered desk beside hiking gear and a laptop with mountain and FBI stickers.">
+            <figcaption>Jordan is a fictional composite persona. She does not represent every student with ADHD.</figcaption>
+          </figure>
+          <div>
+            <h3>Hi, I’m Jordan.</h3>
+            <p>I’m a 20-year-old college sophomore, and I use she/her pronouns. I love hiking, being outdoors, and noticing details other people miss.</p>
+            <p>I hope to become a private investigator someday. I can spot a suspicious footprint faster than I can find an assignment deadline buried halfway down a course page.</p>
+            <div class="tag-list" aria-label="Jordan at a glance">
+              <span>College sophomore</span><span>She/her</span><span>Future private investigator</span><span>Outdoor enthusiast</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-grid two-up">
+          <article class="soft-card">
+            <h3>Strengths I Bring</h3>
+            <ul class="check-list">
+              <li>Curiosity and close observation</li>
+              <li>Strong connections between ideas</li>
+              <li>Deep focus when something interests me</li>
+              <li>Persistence and creative problem-solving</li>
+              <li>Attention to details others may overlook</li>
+            </ul>
+          </article>
+          <article class="soft-card warm">
+            <h3>What Helps Me Learn</h3>
+            <ul class="check-list">
+              <li>Predictable organization</li>
+              <li>Clearly visible deadlines</li>
+              <li>A manageable first step</li>
+              <li>Examples of completed work</li>
+              <li>Progress cues and checklists</li>
+              <li>Approachable ways to ask for help</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3>How My Brain Works</h3>
+        <p>I have ADHD. My brain is curious, observant, and always making connections, but every notification, open tab, unfinished task, and vague direction can feel like it is competing for my attention at the same time. I can become completely absorbed in something interesting and then realize hours have passed.</p>
+        <p>Starting a task is often harder than completing it once I understand exactly where to begin. I take medication to help with focus, but I do not always like how it makes me feel, so I am not always consistent about taking it. Changes in medication or sleep can leave me feeling foggy, disconnected, and in need of time to feel grounded again.</p>
+        <p>Missing even a few classes can make returning feel overwhelming. I may not know what I missed, what matters most, or where I should restart.</p>
+
+        <div class="callout dark">
+          <h3>Help Me Find My Way Back In</h3>
+          <p>When I return after falling behind, I need the course to help me answer:</p>
+          <ul>
+            <li>What is most important right now?</li>
+            <li>What is due next?</li>
+            <li>How long might it take?</li>
+            <li>What is the first small action?</li>
+            <li>How will I know when I am finished?</li>
+            <li>Where can I ask for help without feeling judged?</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="page" id="page-instructions" data-page="instructions" aria-labelledby="instructions-title" hidden>
+        <p class="eyebrow">Before you compare</p>
+        <h2 id="instructions-title">Help Jordan Find Her Next Step</h2>
+        <img class="scenario-banner" src="assets/jordan-testing-scenario.png" alt="Jordan at her desk beside the title Jordan and the Testing Scenario.">
+        <div class="callout blue">
+          <strong>Estimated time:</strong> 3–5 minutes for each course view.
+        </div>
+        <h3>The Scenario</h3>
+        <p>Imagine that Jordan has missed three days because her sleep, medication, work, and mental-health demands became difficult to manage. She has reopened the course and wants to get back on track, but she does not know where to begin.</p>
+        <div class="callout gold">
+          <h3>This Is a Test of the Design</h3>
+          <p>This is not a test of you or your ability to use Brightspace. If information is difficult to find, that is useful evidence about the learning environment.</p>
+          <p><strong>You are locating information—not completing or submitting the Field Observation Brief.</strong></p>
+        </div>
+        <h3>What to Find in Each Version</h3>
+        <ol class="numbered-list">
+          <li>Start the timer.</li>
+          <li>Find what assignment is due next.</li>
+          <li>Find the assignment deadline.</li>
+          <li>Identify the first action Jordan should take.</li>
+          <li>Find the available response formats.</li>
+          <li>Find the evaluation criteria.</li>
+          <li>Find where Jordan can go for help.</li>
+          <li>Stop the timer and record your experience.</li>
+        </ol>
+        <button class="primary-button" type="button" data-go="view-a">Begin with Course View A</button>
+      </section>
+
+      <section class="page" id="page-view-a" data-page="view-a" aria-labelledby="view-a-title" hidden>
+        <div class="page-heading-row">
+          <div><p class="eyebrow">Course View A</p><h2 id="view-a-title">Week 4: Investigative Thinking</h2></div>
+          <div class="timer-card" data-timer="a">
+            <span class="timer-label">View A timer</span>
+            <output class="timer-output" aria-live="polite">00:00</output>
+            <button class="small-button timer-start" type="button">Start</button>
+            <button class="small-button timer-stop" type="button">Stop</button>
+            <button class="text-button timer-reset" type="button">Reset</button>
+          </div>
+        </div>
+        <div class="dense-course-page">
+          <p>Welcome to Week 4. We are continuing our work on observation and inference, which you will need for the discussion and the Field Observation Brief. Review the Week 4 materials and complete the Field Observation Brief. For the brief, use the case note and identify three details that are direct observations and three details that are interpretations. Explain why confusing the two could affect a conclusion. Your response should be 150–200 words, although you may submit a two-minute audio response or a one-page visual instead. Make sure you refer to at least one idea from the lesson. This should take approximately 25 minutes after you review the short reading. The Field Observation Brief is due Sunday at 11:59 p.m. and is worth 10 points. The rubric considers use of evidence, distinction between observation and inference, clarity, and reflection. If you missed earlier work, review the previous announcement and then return here. Questions can be brought to office hours or sent through the course communication tool.</p>
+          <h3>Weekly Materials</h3>
+          <h4>Observation or Assumption?</h4>
+          <p>An observation describes something that can be directly noticed or verified. An inference is an interpretation based on those details and a person’s prior knowledge. Strong investigators separate the two so that an early assumption does not quietly become “evidence.”</p>
+          <h4>Case Note</h4>
+          <p>At 8:05 a student entered the room after the instructor began speaking. Directions appeared on the screen for approximately 20 seconds. The student opened a laptop, looked at the course page, and asked a nearby classmate which file to open.</p>
+          <h4>Field Observation Brief Rubric</h4>
+          <ul><li>Use of evidence: 40%</li><li>Distinction between observation and inference: 30%</li><li>Clarity: 20%</li><li>Reflection: 10%</li></ul>
+          <h4>Questions and Assistance</h4>
+          <p>Use the course communication tool or attend office hours if you have questions. If you are catching up, explain what you have completed and what is blocking your next step.</p>
+        </div>
+        <div class="button-row page-actions-inline">
+          <button class="secondary-button" type="button" data-go="assignment-a">Open A – Field Observation Brief</button>
+          <button class="primary-button" type="button" data-go="evaluation">Record View A results</button>
+        </div>
+      </section>
+
+      <section class="page" id="page-assignment-a" data-page="assignment-a" aria-labelledby="assignment-a-title" hidden>
+        <p class="eyebrow">Course View A</p>
+        <h2 id="assignment-a-title">A – Field Observation Brief</h2>
+        <div class="simulation-warning"><strong>Simulation only—do not submit.</strong></div>
+        <div class="assignment-panel plain-assignment">
+          <h3>Field Observation Brief</h3>
+          <p>Review the case note provided in the Week 4 course materials.</p>
+          <p>In your response:</p>
+          <ol><li>Identify three direct observations.</li><li>Identify three possible inferences.</li><li>Explain why confusing observation and inference could affect a conclusion.</li><li>Refer to at least one idea from the lesson.</li></ol>
+          <h3>Response Options</h3>
+          <p>Choose one:</p>
+          <ul><li>A written response of 150–200 words</li><li>An audio response of no more than two minutes</li><li>A one-page visual response with brief explanatory labels</li></ul>
+          <h3>Evaluation Criteria</h3>
+          <ul><li>Use of evidence: 40%</li><li>Distinction between observation and inference: 30%</li><li>Clarity: 20%</li><li>Reflection: 10%</li></ul>
+        </div>
+        <button class="primary-button" type="button" data-go="view-b">Continue to Course View B</button>
+      </section>
+
+      <section class="page" id="page-view-b" data-page="view-b" aria-labelledby="view-b-title" hidden>
+        <div class="page-heading-row">
+          <div><p class="eyebrow">Course View B</p><h2 id="view-b-title">Week 4: Observation vs. Inference</h2></div>
+          <div class="timer-card" data-timer="b">
+            <span class="timer-label">View B timer</span>
+            <output class="timer-output" aria-live="polite">00:00</output>
+            <button class="small-button timer-start" type="button">Start</button>
+            <button class="small-button timer-stop" type="button">Stop</button>
+            <button class="text-button timer-reset" type="button">Reset</button>
+          </div>
+        </div>
+        <p class="page-lead">Use the case note to separate what can be directly observed from what has been inferred. Follow the path below and choose the response format that works best for you.</p>
+
+        <section class="objective-card" id="objective">
+          <h3>Learning Objective</h3>
+          <p>Separate direct observation from inference and explain how confusing the two can affect a conclusion.</p>
+        </section>
+
+        <section class="glance-card">
+          <h3>At a Glance</h3>
+          <div class="glance-grid">
+            <div><strong>Assignment</strong><span>Field Observation Brief</span></div>
+            <div><strong>Due</strong><span>Sunday, November 1, 2026, at 11:59 p.m. Eastern Time</span></div>
+            <div><strong>Estimated Time</strong><span>Approximately 25 minutes</span></div>
+            <div><strong>Value</strong><span>10 points</span></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="start-here-title">
+          <h3 id="start-here-title">Start Here: Follow These Steps</h3>
+          <ol class="action-path">
+            <li><span>1</span><div><strong>Read the short explanation</strong><small>Learn the difference between an observation and an inference.</small></div><a href="#explanation">Begin Here</a></li>
+            <li><span>2</span><div><strong>Review the case note</strong><small>Identify three direct observations and three possible interpretations.</small></div><a href="#case-note">Open Case Note</a></li>
+            <li><span>3</span><div><strong>Open the Field Observation Brief</strong><small>Complete the Notice, Interpret, Reflect, and Connect steps.</small></div><button type="button" data-go="assignment-b">Open Assignment</button></li>
+            <li><span>4</span><div><strong>Choose how to respond</strong><small>Select a written, audio, or one-page visual response.</small></div><a href="#response-options">View Options</a></li>
+            <li><span>5</span><div><strong>Review what success looks like</strong><small>Check the expectations before submitting your work.</small></div><a href="#success-criteria">View Criteria</a></li>
+          </ol>
+        </section>
+
+        <section id="explanation" class="content-section">
+          <h3>Observation or Inference?</h3>
+          <p>An <strong>observation</strong> describes something that can be directly noticed or verified. An <strong>inference</strong> is an interpretation based on those details and a person’s prior knowledge.</p>
+          <p>Separating the two helps prevent an early assumption from quietly becoming “evidence.”</p>
+        </section>
+
+        <section id="case-note" class="case-note">
+          <h3>Case Note</h3>
+          <p>At 8:05, a student entered the room after the instructor began speaking. Directions appeared on the screen for approximately 20 seconds. The student opened a laptop, looked at the course page, and asked a nearby classmate which file to open.</p>
+        </section>
+
+        <section id="response-options" class="content-section">
+          <h3>Choose How to Respond</h3>
+          <ul class="choice-list"><li>Written response of 150–200 words</li><li>Audio response of no more than two minutes</li><li>One-page visual response with brief explanatory labels</li></ul>
+        </section>
+
+        <section id="success-criteria" class="content-section">
+          <h3>What Success Looks Like</h3>
+          <div class="criteria-grid"><div><strong>40%</strong><span>Use of evidence</span></div><div><strong>30%</strong><span>Observation vs. inference</span></div><div><strong>20%</strong><span>Clarity</span></div><div><strong>10%</strong><span>Reflection</span></div></div>
+        </section>
+
+        <div class="info-grid two-up">
+          <article class="soft-card">
+            <h3>Returning After an Absence?</h3>
+            <p>You do not need to complete the entire week at once. Start with the short explanation, then complete Steps 1 and 2 of the Field Observation Brief.</p>
+            <button class="secondary-button" type="button" data-go="checklist">Open Return Checklist</button>
+          </article>
+          <article class="soft-card">
+            <h3>Need Help?</h3>
+            <p>You can contact the instructor without writing a long explanation.</p>
+            <blockquote>“I completed _____. My next question or challenge is _____.”</blockquote>
+            <button class="primary-button" type="button" id="copy-help-message">Copy the Message Starter</button>
+          </article>
+        </div>
+        <button class="primary-button" type="button" data-go="evaluation">Record View B results</button>
+      </section>
+
+      <section class="page" id="page-checklist" data-page="checklist" aria-labelledby="checklist-title" hidden>
+        <p class="eyebrow">Return-to-learning support</p>
+        <h2 id="checklist-title">Jordan’s Return-to-Learning Checklist</h2>
+        <div class="checklist-progress" aria-live="polite"><strong id="checklist-count">0 of 7 items complete</strong><div class="progress-bar"><span id="checklist-bar"></span></div></div>
+        <p>Complete Week 4 one manageable action at a time. Your selections are saved only in this browser.</p>
+        <div class="interactive-checklist">
+          <label><input type="checkbox" data-check-item="overview"><span><strong>Open the Week 4 overview.</strong><small>Due November 1, 2026, 11:59 p.m.</small></span></label>
+          <label><input type="checkbox" data-check-item="due"><span><strong>Identify what is due next.</strong><small>Due November 1, 2026, 11:59 p.m.</small></span></label>
+          <label><input type="checkbox" data-check-item="directions"><span><strong>Read the assignment directions.</strong><small>Due November 1, 2026, 11:59 p.m.</small></span></label>
+          <label><input type="checkbox" data-check-item="format"><span><strong>Choose one response format.</strong><small>Written, audio, or one-page visual</small></span></label>
+          <label><input type="checkbox" data-check-item="start"><span><strong>Complete one 15-minute starting action.</strong><small>Beginning counts as progress.</small></span></label>
+          <label><input type="checkbox" data-check-item="criteria"><span><strong>Review the success criteria.</strong><small>Know what matters before continuing.</small></span></label>
+          <label><input type="checkbox" data-check-item="help"><span><strong>Submit the work or ask for help.</strong><small>Use the message starter if you are stuck.</small></span></label>
+        </div>
+        <div class="button-row"><button class="secondary-button" type="button" data-go="view-b">Return to overview</button><button class="primary-button" type="button" data-go="assignment-b">Open assignment</button></div>
+      </section>
+
+      <section class="page" id="page-assignment-b" data-page="assignment-b" aria-labelledby="assignment-b-title" hidden>
+        <p class="eyebrow">Course View B</p>
+        <h2 id="assignment-b-title">B – Field Observation Brief</h2>
+        <div class="simulation-warning"><strong>Simulation only—do not submit.</strong></div>
+        <div class="assignment-meta"><span><strong>Due:</strong> November 1, 2026, 11:59 p.m. ET</span><span><strong>Time:</strong> Approximately 25 minutes</span><span><strong>Value:</strong> 10 points</span></div>
+        <div class="assignment-panel">
+          <h3>Your Task</h3>
+          <p>Review the case note, then:</p>
+          <ol class="numbered-list"><li>Identify three direct observations.</li><li>Identify three possible inferences.</li><li>Explain why confusing observation and inference could affect a conclusion.</li><li>Refer to at least one idea from the lesson.</li></ol>
+          <fieldset class="response-choice"><legend>Choose a response format</legend><label><input type="radio" name="format" value="written"> Written response: 150–200 words</label><label><input type="radio" name="format" value="audio"> Audio response: no more than two minutes</label><label><input type="radio" name="format" value="visual"> One-page visual with brief explanatory labels</label></fieldset>
+          <h3>What Success Looks Like</h3>
+          <ul><li><strong>Use of evidence:</strong> 40%</li><li><strong>Distinction between observation and inference:</strong> 30%</li><li><strong>Clarity:</strong> 20%</li><li><strong>Reflection:</strong> 10%</li></ul>
+          <div class="callout blue"><strong>First 15-minute action:</strong> Copy the case note into your workspace and mark three details you can directly verify.</div>
+        </div>
+        <div class="button-row"><button class="secondary-button" type="button" data-go="checklist">Use the return checklist</button><button class="primary-button" type="button" data-go="evaluation">Evaluate the two designs</button></div>
+      </section>
+
+      <section class="page" id="page-evaluation" data-page="evaluation" aria-labelledby="evaluation-title" hidden>
+        <p class="eyebrow">Record your experience</p>
+        <h2 id="evaluation-title">Participant Evaluation</h2>
+        <p>Do not include your name or private information. This activity evaluates the design—not the participant.</p>
+        <form id="evaluation-form">
+          <div class="evaluation-grid">
+            <fieldset><legend>Version A</legend>
+              <label>Time required in seconds <input type="number" min="0" name="a-time" inputmode="numeric"></label>
+              <label>Did you find the assignment? <select name="a-assignment"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Did you find the deadline? <select name="a-deadline"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Did you identify the first action? <select name="a-first"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Did you find a help route? <select name="a-help"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Mental effort: <output id="a-effort-output">3</output> of 5 <input type="range" name="a-effort" id="a-effort" min="1" max="5" value="3"></label>
+              <label>Confidence: <output id="a-confidence-output">3</output> of 5 <input type="range" name="a-confidence" id="a-confidence" min="1" max="5" value="3"></label>
+            </fieldset>
+            <fieldset><legend>Version B</legend>
+              <label>Time required in seconds <input type="number" min="0" name="b-time" inputmode="numeric"></label>
+              <label>Did you find the assignment? <select name="b-assignment"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Did you find the deadline? <select name="b-deadline"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Did you identify the first action? <select name="b-first"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Did you find a help route? <select name="b-help"><option value="">Choose</option><option>Yes</option><option>Partly</option><option>No</option></select></label>
+              <label>Mental effort: <output id="b-effort-output">3</output> of 5 <input type="range" name="b-effort" id="b-effort" min="1" max="5" value="3"></label>
+              <label>Confidence: <output id="b-confidence-output">3</output> of 5 <input type="range" name="b-confidence" id="b-confidence" min="1" max="5" value="3"></label>
+            </fieldset>
+          </div>
+          <h3>Reflect on the Experience</h3>
+          <label>Which version made the next step easier to identify, and why?<textarea name="reflection-next" rows="4"></textarea></label>
+          <label>What reduced or increased your mental effort?<textarea name="reflection-effort" rows="4"></textarea></label>
+          <label>Which version would better support Jordan after missing several days?<textarea name="reflection-jordan" rows="4"></textarea></label>
+          <label>What is one change you would make before using this design with students?<textarea name="reflection-change" rows="4"></textarea></label>
+          <div class="button-row"><button class="primary-button" type="button" id="download-notes">Download my notes</button><button class="secondary-button" type="button" data-go="educator">Continue to educator review</button></div>
+          <p class="save-status" id="save-status" aria-live="polite">Responses save automatically in this browser.</p>
+        </form>
+      </section>
+
+      <section class="page" id="page-educator" data-page="educator" aria-labelledby="educator-title" hidden>
+        <p class="eyebrow">Sustainability matters</p>
+        <h2 id="educator-title">Educator Feasibility Review</h2>
+        <p>A support may benefit learners and still be difficult for instructors to create or maintain. Consider the balance between learner value and educator effort.</p>
+        <div class="table-wrap"><table><caption>Estimated effort and value of prototype supports</caption><thead><tr><th scope="col">Support</th><th scope="col">Initial effort</th><th scope="col">Ongoing effort</th><th scope="col">Learner value</th><th scope="col">What makes it sustainable</th></tr></thead><tbody>
+          <tr><th scope="row">Consistent weekly structure</th><td>Moderate</td><td>Low</td><td>High</td><td>Reusable module template</td></tr>
+          <tr><th scope="row">Purpose, deadline, time estimate, and first action</th><td>Low</td><td>Low</td><td>High</td><td>Short “At a Glance” block</td></tr>
+          <tr><th scope="row">Numbered action pathway</th><td>Moderate</td><td>Low</td><td>High</td><td>Copy and update the same five-step pattern</td></tr>
+          <tr><th scope="row">Multiple response formats</th><td>Moderate</td><td>Moderate</td><td>High</td><td>Shared criteria across formats</td></tr>
+          <tr><th scope="row">Return-to-learning checklist</th><td>Moderate</td><td>Moderate</td><td>High</td><td>Use selectively for complex weeks or projects</td></tr>
+          <tr><th scope="row">Direct, approachable help route</th><td>Low</td><td>Low</td><td>High</td><td>Reusable message starter</td></tr>
+          <tr><th scope="row">Class Progress and automated outreach</th><td>High</td><td>Moderate</td><td>Potentially high</td><td>Training, permissions, and clear faculty workflow</td></tr>
+        </tbody></table></div>
+        <div class="callout gold"><strong>Feasibility finding:</strong> The strongest starting practices are not the most technically complex. Predictability, clarity, visible next actions, and human support can be built into a reusable template.</div>
+        <h3>Questions for Educators</h3>
+        <ul><li>Which supports could be built into a reusable course template?</li><li>Which features depend on institutional settings or permissions?</li><li>Which practices provide enough learner value to justify the effort?</li><li>What training or examples would make adoption more realistic?</li></ul>
+        <button class="primary-button" type="button" data-go="findings">Review the findings</button>
+      </section>
+
+      <section class="page" id="page-findings" data-page="findings" aria-labelledby="findings-title" hidden>
+        <p class="eyebrow">Design analysis and working findings</p>
+        <h2 id="findings-title">What the Comparison Suggests</h2>
+        <p class="page-lead">These are design-based observations from the prototype—not claims from formal research with a large participant group.</p>
+        <div class="comparison-grid">
+          <article><h3>Course View A</h3><p>Information is present but competes for attention. The learner must independently locate, prioritize, and sequence the steps. Returning after an absence is possible, but effortful.</p></article>
+          <article><h3>Course View B</h3><p>The deadline, estimated time, purpose, and first action are visible. Numbered steps guide the pathway, while response choices, success criteria, re-entry cues, and help are grouped around learner decisions.</p></article>
+          <article class="insight"><h3>Key Insight</h3><p>Having the right information is not enough. Structure, sequencing, and clarity determine whether a learner can act on it with confidence.</p></article>
+        </div>
+
+        <h3>Connections to Universal Design for Learning</h3>
+        <div class="udl-grid">
+          <article><h4>Engagement</h4><p>Predictable structure, manageable entry points, reduced uncertainty, and a clear return pathway help sustain effort without lowering the academic goal.</p></article>
+          <article><h4>Representation</h4><p>Headings, visual grouping, concise summaries, read-aloud support, and repeated layout cues make important information easier to perceive and interpret.</p></article>
+          <article><h4>Action &amp; Expression</h4><p>Multiple response formats, visible success criteria, progress cues, and flexible pathways give learners meaningful ways to plan and demonstrate learning.</p></article>
+        </div>
+
+        <div class="callout blue"><strong>UDL interpretation:</strong> View B transfers some unnecessary executive-function demands from the learner into the design of the environment while maintaining the same learning objective.</div>
+
+        <h3>Five Practices to Begin With</h3>
+        <ol class="recommendations"><li><strong>Use a consistent weekly module structure.</strong><span>Keep names, sequence, and location predictable.</span></li><li><strong>Group essential orientation information.</strong><span>Show the purpose, exact deadline, time estimate, and first action together.</span></li><li><strong>Make the path visible.</strong><span>Use numbered, linked steps and explain what completion looks like.</span></li><li><strong>Design for re-entry.</strong><span>Tell students where to restart after an absence or interruption.</span></li><li><strong>Make help approachable.</strong><span>Provide a direct route and a message starter that reduces the burden of asking.</span></li></ol>
+
+        <h3>Reflection on Brightspace</h3>
+        <p>While building and testing this prototype, I found that Brightspace offered several ways to navigate to the same information. That flexibility can be helpful, but it can also make course building and learner navigation feel less natural. The platform provides useful tools—content units, completion tracking, checklists, calendar dates, accessibility checking, Class Progress, and automated outreach—but those tools do not automatically create an executive-function-friendly course. Their value depends on whether educators select, organize, explain, and maintain them intentionally.</p>
+        <button class="primary-button" type="button" data-go="discussion">Continue to discussion</button>
+      </section>
+
+      <section class="page" id="page-discussion" data-page="discussion" aria-labelledby="discussion-title" hidden>
+        <p class="eyebrow">Final discussion</p>
+        <h2 id="discussion-title">What Would You Carry Forward?</h2>
+        <div class="discussion-grid">
+          <article class="soft-card"><h3>From your perspective</h3><ul><li>Which features offer the greatest learner benefit?</li><li>Which practices can educators realistically maintain?</li><li>What features might require additional training or support?</li></ul></article>
+          <article class="soft-card warm"><h3>From Jordan’s perspective</h3><ul><li>Which course view helps her find, begin, track, and return?</li><li>What specific features are most helpful?</li><li>What barriers remain?</li></ul></article>
+        </div>
+        <div class="callout dark"><h3>Discussion Directions</h3><p>Write one or two short paragraphs. Address both your own perspective and Jordan’s perspective, then respond thoughtfully to at least one classmate.</p></div>
+        <h3>Working Conclusion</h3>
+        <p>Brightspace can support executive functioning when educators use predictable organization, visible expectations, manageable next steps, progress cues, and clear pathways to human support. The platform alone does not create an accessible learning experience. The way its features are selected, organized, explained, and maintained determines whether the technology reduces barriers or adds new ones.</p>
+        <button class="secondary-button" type="button" data-go="home">Return to project home</button>
+      </section>
+
+      <footer class="page-footer">
+        <button type="button" id="previous-page" class="secondary-button">Previous</button>
+        <button type="button" id="complete-page" class="complete-button">Mark this page complete</button>
+        <button type="button" id="next-page" class="primary-button">Next</button>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
