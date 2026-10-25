@@ -16,6 +16,19 @@ This is a standalone, accessible, Brightspace-inspired simulation created for Al
 
 The site does not connect to Brightspace, submit assignments, collect participant data, or report grades. All progress and typed responses remain in the visitor's browser.
 
+## Adding the recorded walkthrough
+
+When the final recording is ready, save it as `assets/project-walkthrough.mp4`. Replace the `.video-placeholder` block in `index.html` with:
+
+```html
+<video class="project-video" controls preload="metadata" poster="assets/brightspace-burden-hero.png">
+  <source src="assets/project-walkthrough.mp4" type="video/mp4">
+  Your browser does not support embedded video. Use the written transcript below the video instead.
+</video>
+```
+
+Use a captioned version of the recording and provide a written transcript with the final project.
+
 ## GitHub Pages
 
 Upload the **contents of the `dist` folder** to the root of a GitHub repository. In the repository, open **Settings → Pages**, choose **Deploy from a branch**, select the main branch and root folder, and save.
