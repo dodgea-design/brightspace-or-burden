@@ -1,7 +1,7 @@
 (() => {
   const pages = [
     'home','jordan','instructions','view-a','assignment-a','view-b','checklist',
-    'assignment-b','evaluation','educator','findings','discussion'
+    'assignment-b','evaluation','educator','findings','sources','discussion'
   ];
   const stateKey = 'brightspace-burden-state-v1';
   const defaultState = { completed: [], checklist: {}, evaluation: {} };
@@ -72,7 +72,7 @@
     const groups = [
       ['view-a','assignment-a'],
       ['view-b','checklist','assignment-b'],
-      ['evaluation','educator','findings','discussion']
+      ['evaluation','educator','findings','sources','discussion']
     ];
     document.querySelectorAll('.module-count').forEach((node, index) => {
       const group = groups[index];
