@@ -117,8 +117,8 @@ blockquote { margin: 1rem 0; padding: .8rem 1rem; background: var(--soft); borde
 .persona-intro img { border-radius: .6rem; }
 .persona-intro figcaption { margin-top: .45rem; color: var(--muted); font-size: .86rem; }
 .persona-intro h3 { margin-top: 0; }
-.tag-list { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
-.tag-list span { padding: .45rem .75rem; color: #fff; background: var(--blue-dark); border-radius: 999px; font-size: .86rem; font-weight: 700; }
+.profile-highlights { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.profile-highlights li { max-width: none; padding: .55rem .7rem; color: var(--blue-dark); background: var(--gold-soft); border-left: 4px solid var(--gold); border-radius: .2rem; font-size: .9rem; font-weight: 700; }
 .check-list li { margin-bottom: .4rem; }
 
 .callout { margin: 1.4rem 0; padding: 1rem 1.25rem; border-radius: var(--radius); }
@@ -235,6 +235,7 @@ tbody tr:nth-child(even) { background: var(--soft); }
   .main-content { padding: 1rem; }
   .hero, .orientation-section, .persona-intro, .two-up, .evaluation-grid, .discussion-grid { grid-template-columns: 1fr; }
   .hero img { order: -1; }
+  .profile-highlights { grid-template-columns: 1fr; }
   .page-heading-row { display: block; }
   .timer-card { margin-bottom: 1rem; }
   .action-path li { grid-template-columns: 42px 1fr; }
