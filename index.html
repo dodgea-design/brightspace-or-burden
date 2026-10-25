@@ -19,11 +19,6 @@
       <span class="brand-mark" aria-hidden="true">AB</span>
       <span><strong>AccessAbility Services</strong><small>Interactive course-design prototype</small></span>
     </a>
-    <div class="toolbar" aria-label="Display and reading controls">
-      <button type="button" id="listen-button" class="toolbar-button">Listen to page</button>
-      <button type="button" id="text-button" class="toolbar-button" aria-pressed="false">Larger text</button>
-      <button type="button" id="contrast-button" class="toolbar-button" aria-pressed="false">High contrast</button>
-    </div>
   </header>
 
   <div class="app-shell">
@@ -73,19 +68,14 @@
 
     <main id="main-content" class="main-content" tabindex="-1">
       <div class="prototype-notice" role="note">
-        <strong>Prototype:</strong> This public demonstration recreates the learner-facing experience for evaluation. It is not connected to a live Brightspace course, gradebook, or submission system.
+        <strong>Prototype:</strong> This public demonstration recreates learner-facing Brightspace content for evaluation. It is not connected to a live course, gradebook, or submission system.
       </div>
 
       <section class="page is-active" id="page-home" data-page="home" aria-labelledby="home-title">
         <div class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">One assignment. Two course designs.</p>
             <h2 id="home-title">Brightspace or Burden?</h2>
             <p class="hero-lead">Explore how course organization can either add executive-function demands or help a learner find, begin, track, and return to learning.</p>
-            <div class="button-row">
-              <button class="primary-button" type="button" data-go="jordan">Begin with Jordan</button>
-              <button class="secondary-button" type="button" data-go="instructions">Review the activity</button>
-            </div>
           </div>
           <img src="assets/brightspace-burden-hero.png" alt="A laptop between a clear, supported pathway and a crowded tangle of competing information.">
         </div>
@@ -120,8 +110,8 @@
         <details class="project-details">
           <summary>How this public prototype was created from Brightspace</summary>
           <div>
-            <p>I first built the learner-facing pages and activities in a D2L Brightspace sandbox. Because my classmates and colleagues cannot enter that private course, I exported the course content from Brightspace. The export included an IMS manifest, HTML content pages, Brightspace XML data, and image assets. I used those exported source files to recreate the relevant learner experience as this standalone public prototype.</p>
-            <p>No student records or private course data were included. This site preserves the content, organization, comparison activity, checklists, and reflection prompts needed for the project, but it does not reproduce the full Brightspace platform.</p>
+            <p>I first built the learner-facing pages and activities in a D2L Brightspace sandbox. Because my classmates and colleagues cannot enter that private course, I exported the course package. It contained the HTML pages and images I created, Brightspace configuration files, and a manifest—essentially a map that tells a learning platform which files belong in the course and how they fit together.</p>
+            <p>With help from ChatGPT, I used those exported materials to code this public HTML, CSS, and JavaScript reconstruction. I made the learning-content, comparison, and design decisions; ChatGPT helped translate those decisions into a working public prototype. No student records or private course data were included.</p>
           </div>
         </details>
 
@@ -384,6 +374,32 @@
           <label><input type="checkbox" data-check-item="criteria"><span><strong>Review the success criteria.</strong><small>Know what matters before continuing.</small></span></label>
           <label><input type="checkbox" data-check-item="help"><span><strong>Submit the work or ask for help.</strong><small>Use the message starter if you are stuck.</small></span></label>
         </div>
+        <section class="checklist-explainer" aria-labelledby="checklist-explainer-title">
+          <h3 id="checklist-explainer-title">What the Brightspace Checklist Can Do</h3>
+          <p>Brightspace checklists can group required or recommended actions into categories. Instructors can add descriptions, direct Quicklinks to course materials, due dates, and optional calendar display. Learners mark items complete, and checklist completion can appear in Class Progress when that feature is available to the instructor.</p>
+          <div class="info-grid two-up">
+            <article class="soft-card">
+              <h4>Where It May Help</h4>
+              <ul>
+                <li>Returning after an absence or interruption</li>
+                <li>Beginning a complex week or long-term project</li>
+                <li>Externalizing sequence, working memory, and progress</li>
+                <li>Making required and recommended actions more visible</li>
+              </ul>
+            </article>
+            <article class="soft-card warm">
+              <h4>Questions and Limitations</h4>
+              <ul>
+                <li>Will students know where the checklist is and why it matters?</li>
+                <li>Does it clarify the course path or create another place to check?</li>
+                <li>Are the steps meaningful, or are there too many small checkboxes?</li>
+                <li>Because students mark items themselves, completion is not proof of learning.</li>
+              </ul>
+            </article>
+          </div>
+          <p><strong>Faculty design suggestion:</strong> Use one short checklist for a complex week, major assignment, or re-entry pathway. Keep the items in the same order as the module, begin each with an action verb, link directly to the resource, and explain whether each item is required or recommended.</p>
+          <p><a href="https://community.d2l.com/brightspace/kb/articles/34713-about-checklist" target="_blank" rel="noopener">Review D2L’s official Checklist documentation</a> or <a href="https://community.d2l.com/brightspace/kb/articles/1697-about-class-progress" target="_blank" rel="noopener">learn how checklist completion can appear in Class Progress</a>.</p>
+        </section>
         <div class="button-row"><button class="secondary-button" type="button" data-go="view-b">Return to overview</button><button class="primary-button" type="button" data-go="assignment-b">Open assignment</button></div>
       </section>
 
@@ -453,8 +469,20 @@
           <tr><th scope="row">Class Progress and automated outreach</th><td>High</td><td>Moderate</td><td>Potentially high</td><td>Training, permissions, and clear faculty workflow</td></tr>
         </tbody></table></div>
         <div class="callout gold"><strong>Feasibility finding:</strong> The strongest starting practices are not the most technically complex. Predictability, clarity, visible next actions, and human support can be built into a reusable template.</div>
+
+        <section class="faculty-template" aria-labelledby="faculty-template-title">
+          <p class="eyebrow">Practical faculty resource</p>
+          <h3 id="faculty-template-title">Brightspace Weekly Overview Template</h3>
+          <p>This reusable HTML page gives faculty a consistent starting structure for weekly or module content. It includes a learning objective, an At a Glance block, a numbered learning pathway, response options, success criteria, re-entry guidance, and a direct help route. Faculty replace the bracketed text and insert their own Brightspace Quicklinks.</p>
+          <p>The template does not imitate every Brightspace function or create persistent check marks. When learner-controlled progress tracking is useful, faculty should create a separate Brightspace Checklist and link it from the overview page.</p>
+          <div class="button-row">
+            <a class="secondary-button" href="assets/brightspace-weekly-overview-template.html" target="_blank" rel="noopener">Preview Faculty Template</a>
+            <a class="primary-button" href="assets/brightspace-weekly-overview-template.html" download>Download HTML Template</a>
+          </div>
+        </section>
+
         <h3>Questions for Educators</h3>
-        <ul><li>Which supports could be built into a reusable course template?</li><li>Which features depend on institutional settings or permissions?</li><li>Which practices provide enough learner value to justify the effort?</li><li>What training or examples would make adoption more realistic?</li></ul>
+        <ul><li>Do you currently use Brightspace checklists? If so, how do students respond to them?</li><li>Which supports could be built into a reusable course template?</li><li>Which features depend on institutional settings or permissions?</li><li>Which practices provide enough learner value to justify the effort?</li><li>What training or examples would make adoption more realistic?</li></ul>
         <button class="primary-button" type="button" data-go="findings">Review the findings</button>
       </section>
 
@@ -471,7 +499,7 @@
         <h3>Connections to Universal Design for Learning</h3>
         <div class="udl-grid">
           <article><h4>Engagement</h4><p>Predictable structure, manageable entry points, reduced uncertainty, and a clear return pathway help sustain effort without lowering the academic goal.</p></article>
-          <article><h4>Representation</h4><p>Headings, visual grouping, concise summaries, read-aloud support, and repeated layout cues make important information easier to perceive and interpret.</p></article>
+          <article><h4>Representation</h4><p>Headings, visual grouping, concise summaries, direct links, and repeated layout cues make important information easier to perceive and interpret.</p></article>
           <article><h4>Action &amp; Expression</h4><p>Multiple response formats, visible success criteria, progress cues, and flexible pathways give learners meaningful ways to plan and demonstrate learning.</p></article>
         </div>
 

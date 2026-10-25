@@ -40,9 +40,8 @@ blockquote { margin: 1rem 0; padding: .8rem 1rem; background: var(--soft); borde
 .brand span:last-child { display: grid; line-height: 1.2; }
 .brand small { margin-top: .15rem; color: var(--muted); }
 .brand-mark { display: inline-grid; place-items: center; width: 40px; height: 40px; color: #fff; background: var(--blue); border-radius: 50%; font-weight: 800; }
-.toolbar { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .45rem; }
-.toolbar-button, .icon-button { padding: .55rem .75rem; color: var(--blue-dark); background: #fff; border: 1px solid var(--line); border-radius: .4rem; font-weight: 700; cursor: pointer; }
-.toolbar-button:hover, .icon-button:hover { background: var(--blue-soft); }
+.icon-button { padding: .55rem .75rem; color: var(--blue-dark); background: #fff; border: 1px solid var(--line); border-radius: .4rem; font-weight: 700; cursor: pointer; }
+.icon-button:hover { background: var(--blue-soft); }
 .menu-button { display: none; }
 
 .app-shell { display: grid; grid-template-columns: 365px minmax(0,1fr); min-height: calc(100vh - 68px); }
@@ -179,6 +178,9 @@ blockquote { margin: 1rem 0; padding: .8rem 1rem; background: var(--soft); borde
 .interactive-checklist input { width: 1.3rem; height: 1.3rem; margin-top: .15rem; }
 .interactive-checklist span { display: grid; }
 .interactive-checklist small { color: var(--muted); }
+.checklist-explainer { margin: 2rem 0; padding: 1.2rem; background: var(--blue-soft); border-left: 6px solid var(--teal); }
+.checklist-explainer h3 { margin-top: 0; }
+.checklist-explainer h4 { margin-top: 0; }
 
 .evaluation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .evaluation-grid fieldset { display: grid; gap: .85rem; padding: 1.15rem; border: 1px solid var(--line); border-radius: var(--radius); }
@@ -194,6 +196,8 @@ caption { padding: .6rem; color: var(--blue-dark); font-size: 1.15rem; font-weig
 th, td { padding: .8rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
 thead th { color: #fff; background: var(--blue-dark); }
 tbody tr:nth-child(even) { background: var(--soft); }
+.faculty-template { margin: 2rem 0; padding: 1.25rem; background: #fff; border: 2px solid var(--blue); border-radius: var(--radius); }
+.faculty-template h3 { margin-top: .25rem; }
 
 .comparison-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.2rem 0 2rem; }
 .comparison-grid article { padding: 1.2rem; border: 1px solid var(--line); border-top: 6px solid #73828b; border-radius: var(--radius); }
@@ -215,10 +219,6 @@ tbody tr:nth-child(even) { background: var(--soft); }
 .complete-button.is-complete { color: #173d26; background: #dff3e5; border-color: #3c8b56; }
 .toast { position: fixed; z-index: 100; right: 1rem; bottom: 1rem; max-width: 330px; padding: .8rem 1rem; color: #fff; background: #173a52; border-radius: .5rem; box-shadow: var(--shadow); }
 
-body.large-text { font-size: 118%; }
-body.high-contrast { --blue: #004b87; --blue-dark: #000; --teal: #005f62; --ink: #000; --muted: #222; --line: #303030; --soft: #fff; --blue-soft: #fff; --gold-soft: #fff; background: #fff; }
-body.high-contrast .soft-card, body.high-contrast .info-card, body.high-contrast .glance-card, body.high-contrast .objective-card, body.high-contrast .callout, body.high-contrast .assignment-panel { border: 2px solid #000; }
-
 @media (max-width: 1050px) {
   .app-shell { grid-template-columns: 310px minmax(0,1fr); }
   .glance-grid { grid-template-columns: 1fr 1fr; }
@@ -228,8 +228,6 @@ body.high-contrast .soft-card, body.high-contrast .info-card, body.high-contrast
 @media (max-width: 800px) {
   .topbar { flex-wrap: wrap; }
   .menu-button { display: inline-block; }
-  .toolbar { width: 100%; justify-content: stretch; }
-  .toolbar-button { flex: 1; }
   .app-shell { display: block; }
   .sidebar { position: fixed; z-index: 50; top: 0; left: 0; width: min(92vw, 370px); height: 100vh; transform: translateX(-105%); transition: transform .2s ease; box-shadow: var(--shadow); }
   .sidebar.is-open { transform: translateX(0); }
@@ -251,7 +249,7 @@ body.high-contrast .soft-card, body.high-contrast .info-card, body.high-contrast
 }
 
 @media print {
-  .topbar, .sidebar, .prototype-notice, .page-footer, .toolbar, .timer-card, .reset-button { display: none !important; }
+  .topbar, .sidebar, .prototype-notice, .page-footer, .timer-card, .reset-button { display: none !important; }
   .app-shell { display: block; }
   .main-content { padding: 0; }
   .page { display: block !important; page-break-after: always; }

@@ -11,8 +11,9 @@ This is a standalone, accessible, Brightspace-inspired simulation created for Al
 - Browser-saved page completion and checklist progress
 - Participant evaluation with downloadable notes
 - Educator feasibility review
+- Reusable Brightspace weekly overview HTML template for faculty
 - UDL-aligned design findings and discussion prompts
-- Read-aloud, larger text, high contrast, responsive layout, keyboard access, and reduced-motion support
+- Responsive layout, semantic headings, visible keyboard focus, and reduced-motion support
 
 The site does not connect to Brightspace, submit assignments, collect participant data, or report grades. All progress and typed responses remain in the visitor's browser.
 

@@ -4,9 +4,8 @@
     'assignment-b','evaluation','educator','findings','discussion'
   ];
   const stateKey = 'brightspace-burden-state-v1';
-  const defaultState = { completed: [], checklist: {}, evaluation: {}, preferences: {} };
+  const defaultState = { completed: [], checklist: {}, evaluation: {} };
   let state = loadState();
-  let speech = null;
   const timers = {};
 
   function loadState() {
@@ -34,7 +33,6 @@
   }
 
   function renderPage(page = currentPage()) {
-    stopSpeech();
     document.querySelectorAll('.page').forEach(section => {
       const active = section.dataset.page === page;
       section.hidden = !active;
@@ -170,33 +168,6 @@
     });
   }
 
-  function toggleSpeech() {
-    if (!('speechSynthesis' in window)) return showToast('Read-aloud is not supported in this browser.');
-    if (speechSynthesis.speaking) return stopSpeech();
-    const page = document.querySelector('.page.is-active');
-    speech = new SpeechSynthesisUtterance(page.innerText.replace(/\s+/g, ' ').trim());
-    speech.rate = .95;
-    speech.onend = () => document.getElementById('listen-button').textContent = 'Listen to page';
-    speechSynthesis.speak(speech);
-    document.getElementById('listen-button').textContent = 'Stop listening';
-  }
-
-  function stopSpeech() {
-    if ('speechSynthesis' in window) speechSynthesis.cancel();
-    document.getElementById('listen-button').textContent = 'Listen to page';
-  }
-
-  function applyPreferences() {
-    document.body.classList.toggle('large-text', Boolean(state.preferences.largeText));
-    document.body.classList.toggle('high-contrast', Boolean(state.preferences.highContrast));
-    const textButton = document.getElementById('text-button');
-    const contrastButton = document.getElementById('contrast-button');
-    textButton.setAttribute('aria-pressed', String(Boolean(state.preferences.largeText)));
-    contrastButton.setAttribute('aria-pressed', String(Boolean(state.preferences.highContrast)));
-    textButton.textContent = state.preferences.largeText ? 'Standard text' : 'Larger text';
-    contrastButton.textContent = state.preferences.highContrast ? 'Standard contrast' : 'High contrast';
-  }
-
   function openMenu() {
     document.getElementById('course-navigation').classList.add('is-open');
     document.getElementById('sidebar-scrim').hidden = false;
@@ -218,11 +189,11 @@
   }
 
   function resetAll() {
-    if (!confirm('Reset completed pages, checklist items, evaluation notes, and display preferences?')) return;
+    if (!confirm('Reset completed pages, checklist items, and evaluation notes?')) return;
     localStorage.removeItem(stateKey);
     state = structuredClone(defaultState);
     document.getElementById('evaluation-form').reset();
-    applyPreferences(); updateChecklist(); updateRangeOutputs(); updateProgress(); renderPage('home');
+    updateChecklist(); updateRangeOutputs(); updateProgress(); renderPage('home');
     showToast('Prototype progress was reset.');
   }
 
@@ -236,9 +207,6 @@
   document.getElementById('previous-page').addEventListener('click', () => navigate(pages[Math.max(0, pages.indexOf(currentPage()) - 1)]));
   document.getElementById('next-page').addEventListener('click', () => navigate(pages[Math.min(pages.length - 1, pages.indexOf(currentPage()) + 1)]));
   document.getElementById('complete-page').addEventListener('click', markComplete);
-  document.getElementById('listen-button').addEventListener('click', toggleSpeech);
-  document.getElementById('text-button').addEventListener('click', () => { state.preferences.largeText = !state.preferences.largeText; saveState(); applyPreferences(); });
-  document.getElementById('contrast-button').addEventListener('click', () => { state.preferences.highContrast = !state.preferences.highContrast; saveState(); applyPreferences(); });
   document.getElementById('menu-button').addEventListener('click', () => document.getElementById('course-navigation').classList.contains('is-open') ? closeMenu() : openMenu());
   document.getElementById('sidebar-scrim').addEventListener('click', closeMenu);
   document.getElementById('reset-button').addEventListener('click', resetAll);
@@ -257,6 +225,5 @@
   initEvaluation();
   initTimers();
   updateChecklist();
-  applyPreferences();
   navigate(currentPage(), true);
 })();
