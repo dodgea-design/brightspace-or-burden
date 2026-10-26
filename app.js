@@ -32,6 +32,15 @@
     renderPage(page);
   }
 
+  function scrollToSection(targetId) {
+    const target = document.getElementById(targetId);
+    if (!target || target.closest('.page')?.hidden) return;
+    const heading = target.querySelector('h2, h3, h4') || target;
+    if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+    target.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+
   function renderPage(page = currentPage()) {
     document.querySelectorAll('.page').forEach(section => {
       const active = section.dataset.page === page;
@@ -198,8 +207,14 @@
   }
 
   document.addEventListener('click', event => {
+    const sectionLink = event.target.closest('[data-scroll-target]');
+    if (sectionLink) {
+      event.preventDefault();
+      scrollToSection(sectionLink.dataset.scrollTarget);
+      return;
+    }
     const go = event.target.closest('[data-go]');
-    if (go) { event.preventDefault(); navigate(go.dataset.go); }
+    if (go) { event.preventDefault(); navigate(go.dataset.go); return; }
     const pageLink = event.target.closest('[data-page-link]');
     if (pageLink) { event.preventDefault(); navigate(pageLink.dataset.pageLink); }
   });
